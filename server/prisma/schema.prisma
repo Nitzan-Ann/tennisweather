@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model Court {
+  id     Int     @id @default(autoincrement())
+  name   String
+  city   String
+  address String
+  indoor Boolean
+}
