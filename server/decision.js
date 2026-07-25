@@ -1,4 +1,4 @@
-export function decideCourtType(weatherData, windThreshold = 25, humidityThreshold = 85) {
+export function decideCourtType(weatherData, windThreshold = 25, humidityThreshold = 85, minTemp = 5, maxTemp = 35) {
   const windSpeed = weatherData.wind.speed;
   const isRaining = weatherData.weather[0].main === "Rain";
   const temp = weatherData.main.temp;
@@ -6,15 +6,14 @@ export function decideCourtType(weatherData, windThreshold = 25, humidityThresho
 
   if (isRaining) {
     return { recommendation: "indoor", reason: "Rain detected" };
-    //זה יוצר אובייקט עם שני שדות: recommendation (המחרוזת "indoor" או "outdoor") ו-reason 
   }
 
   if (windSpeed > windThreshold) {
     return { recommendation: "indoor", reason: `Wind speed ${windSpeed} m/s exceeds threshold` };
   }
 
-  if (temp < 5 || temp > 35) {
-    return { recommendation: "indoor", reason: `Temperature ${temp}°C is extreme` };
+  if (temp < minTemp || temp > maxTemp) {
+    return { recommendation: "indoor", reason: `Temperature ${temp}°C is outside comfortable range` };
   }
 
   if (humidity > humidityThreshold) {
