@@ -1,0 +1,48 @@
+◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Server running on port 8000
+{"timestamp":"2026-07-26T17:59:44.968Z","level":"info","message":"GET /api/courts"}
+(node:6261) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"timestamp":"2026-07-26T17:59:46.734Z","level":"info","message":"GET /favicon.ico"}
+{"timestamp":"2026-07-26T18:00:03.038Z","level":"info","message":"GET /api/weather?city=Tel%20Aviv"}
+{"timestamp":"2026-07-26T18:00:03.040Z","level":"info","message":"Calling external weather API for city: Tel Aviv"}
+{"timestamp":"2026-07-26T18:00:09.812Z","level":"info","message":"GET /api/recommendation?city=Tel"}
+{"timestamp":"2026-07-26T18:00:09.814Z","level":"info","message":"Calling external weather API for city: Tel"}
+TypeError: Cannot read properties of undefined (reading 'speed')
+    at decideCourtType (file:///home/nitzan/tennisweather/server/decision.js:2:38)
+    at file:///home/nitzan/tennisweather/server/server.js:56:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+{"timestamp":"2026-07-26T18:00:10.446Z","level":"error","message":"Cannot read properties of undefined (reading 'speed')"}
+{"timestamp":"2026-07-26T18:00:47.074Z","level":"info","message":"GET /api/recommendation?city=TelAviv&windThreshold=25&humidityThreshold=85&minTemp=5&maxTemp=35"}
+{"timestamp":"2026-07-26T18:00:47.075Z","level":"info","message":"Calling external weather API for city: TelAviv"}
+TypeError: Cannot read properties of undefined (reading 'speed')
+    at decideCourtType (file:///home/nitzan/tennisweather/server/decision.js:2:38)
+    at file:///home/nitzan/tennisweather/server/server.js:56:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+{"timestamp":"2026-07-26T18:00:47.304Z","level":"error","message":"Cannot read properties of undefined (reading 'speed')"}
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Server running on port 8000
+◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Server running on port 8000
+{"timestamp":"2026-07-26T18:15:10.814Z","level":"info","message":"GET /api/courts"}
+(node:6580) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"timestamp":"2026-07-26T18:18:14.026Z","level":"info","message":"GET /api/recommendation?city=Tel"}
+{"timestamp":"2026-07-26T18:18:14.028Z","level":"info","message":"Calling external weather API for city: Tel"}
+{"timestamp":"2026-07-26T18:18:14.448Z","level":"error","message":"Weather API returned an error for city \"Tel\": city not found"}
+{"timestamp":"2026-07-26T18:44:00.301Z","level":"info","message":"GET /api/courts"}
+{"timestamp":"2026-07-26T19:11:31.909Z","level":"info","message":"GET /api/courts"}
