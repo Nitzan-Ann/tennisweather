@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Courts from "./Courts";
 import ControlPanel from "./ControlPanel";
+import './App.css';
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -15,13 +16,14 @@ export default function App() {
   const [maxTemp, setMaxTemp] = useState(35);
 
   useEffect(() => {
+  const timeoutId = setTimeout(() => {
     async function loadData() {
       try {
         setError(null);
         setLoading(true);
 
-        const url = city?
-            `http://localhost:8000/api/recommendation?city=${city}&windThreshold=${windThreshold}&humidityThreshold=${humidityThreshold}&minTemp=${minTemp}&maxTemp=${maxTemp}`
+        const url = city
+          ? `http://localhost:8000/api/recommendation?city=${city}&windThreshold=${windThreshold}&humidityThreshold=${humidityThreshold}&minTemp=${minTemp}&maxTemp=${maxTemp}`
           : `http://localhost:8000/api/courts`;
 
         const res = await fetch(url);
@@ -46,13 +48,17 @@ export default function App() {
     }
 
     loadData();
-  }, [city, windThreshold, humidityThreshold, minTemp, maxTemp]);
+  }, 500); // מחכה חצי שנייה אחרי השינוי האחרון
+
+  return () => clearTimeout(timeoutId);
+}, [city, windThreshold, humidityThreshold, minTemp, maxTemp]);
 
   return (
     <div className="app">
       <ControlPanel
         city={city}
         setCity={setCity}
+        courts={courts}
         windThreshold={windThreshold}
         setWindThreshold={setWindThreshold}
         humidityThreshold={humidityThreshold}
