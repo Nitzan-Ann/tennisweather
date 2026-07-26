@@ -17,3 +17,12 @@ Web app that recommends indoor or outdoor tennis courts based on real-time weath
 
 ## Status
 In development
+
+## Testing
+- Unit tests for decision logic (decision.test.js) - 4 tests
+- Integration tests for all API endpoints (courts, weather, recommendation) - 6 tests, run against a live server
+- Code coverage measured with c8: 91.66% on decision.js
+  (Note: coverage tooling measures only same-process code;
+  integration tests run successfully against server.js in a
+  separate process, so server.js logic is tested but not
+  reflected in the coverage percentage above.)
