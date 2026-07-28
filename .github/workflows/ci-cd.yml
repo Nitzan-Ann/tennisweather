@@ -21,8 +21,19 @@ jobs:
       - name: Install dependencies
         working-directory: ./server
         run: npm install
+      - name: Start server
+        working-directory: ./server
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        run: node server.js &
+      - name: Wait for server
+        run: sleep 3
       - name: Run tests
         working-directory: ./server
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         run: npm test
 
   deploy:
