@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test decision.test.js"
+    "test": "node --test decision.test.js recommendation.integration.test.js courts.integration.test.js weather.integration.test.js"
   },
   "keywords": [],
   "author": "",
