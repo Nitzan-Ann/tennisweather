@@ -7,6 +7,7 @@ export default function App() {
   const [city, setCity] = useState("");
   const [courts, setCourts] = useState([]);
   const [decision, setDecision] = useState(null);
+  const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -25,19 +26,25 @@ export default function App() {
         const url = city
           ? `http://localhost:8000/api/recommendation?city=${city}&windThreshold=${windThreshold}&humidityThreshold=${humidityThreshold}&minTemp=${minTemp}&maxTemp=${maxTemp}`
           : `http://localhost:8000/api/courts`;
-
-        const res = await fetch(url);
-        if (!res.ok) {
-          throw new Error("Server error: " + res.status);
+        
+        const [recRes, weatherRes] = await Promise.all([
+          fetch(url),
+          city ? fetch(`http://localhost:8000/api/weather?city=${city}`) : Promise.resolve(null)
+        ]);
+        if (!recRes.ok) {
+          throw new Error("Server error: " + recRes.status);
         }
-        const data = await res.json();
-
+        const data = await recRes.json();
+        const weatherData = weatherRes ? await weatherRes.json() : null;
+      
         if (city) {
           setCourts(data.courts);
           setDecision(data.decision);
+          setWeather(weatherData);
         } else {
           setCourts(data);
           setDecision(null);
+          setWeather(null);
         }
       } catch (err) {
         console.error("Error loading data:", err);
@@ -54,6 +61,8 @@ export default function App() {
 }, [city, windThreshold, humidityThreshold, minTemp, maxTemp]);
 
   return (
+  <>
+    <h1>Tennis-Weather</h1>
     <div className="app">
       <ControlPanel
         city={city}
@@ -68,7 +77,8 @@ export default function App() {
         maxTemp={maxTemp}
         setMaxTemp={setMaxTemp}
       />
-      <Courts courts={courts} decision={decision} loading={loading} error={error} />
+      <Courts courts={courts} decision={decision} weather={weather} loading={loading} error={error} />
     </div>
+  </>
   );
 }

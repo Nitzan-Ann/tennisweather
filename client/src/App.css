@@ -5,6 +5,11 @@
 
 body {
   margin: 0;
+  background-image: url('./assets/tennis-ball-court.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .app {
@@ -17,15 +22,34 @@ body {
   align-items: center;
 }
 
+h1 {
+    color: green;
+    font-size: 3rem;
+    align-self: flex-start;
+    font-family: "Pacifico", cursive;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    white-space: nowrap;
+    text-shadow: 
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+}
+
 .control-panel {
+  position: fixed;
+  left: 20px;
+  top: 150px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   border-radius: 12px;
-  border: 1px solid #ccc;
-  padding: 16px 24px;
-  margin-bottom: 32px;
-  width: 500px;
+  border: 5px solid white;
+  padding: 10px 10px;
+  width: 280px;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .control-panel select {
@@ -58,7 +82,7 @@ body {
 
 .slider-row-track span {
   font-size: 12px;
-  color: #666;
+  color: blck;
   flex-shrink: 0;
 }
 
@@ -66,14 +90,15 @@ body {
   flex: 1;
   min-width: 0;
   height: 14px;
+  accent-color: #7cfc00;
 }
 
 .decision-banner {
   border-radius: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid #4caf50;
   padding: 16px 20px;
   margin-bottom: 24px;
-  background-color: #f5f5f5;
+  background-color: #e8f5e9;
   width: 700px;
 }
 
@@ -87,11 +112,10 @@ body {
 
 .court-card {
   border-radius: 12px;
-  border: 1px solid #ccc;
-  background-color: #eef3fb;
+  background-color: white;
   padding: 24px 32px;
   min-height: 140px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px green;
   width: 700px;
   display: flex;
   align-items: center;
@@ -111,3 +135,4 @@ body {
 .court-card-details p {
   margin: 0;
 }
+
