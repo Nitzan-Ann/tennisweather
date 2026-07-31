@@ -115,7 +115,6 @@ h1 {
   background-color: white;
   padding: 24px 32px;
   min-height: 140px;
-  box-shadow: 0 2px 6px green;
   width: 700px;
   display: flex;
   align-items: center;
@@ -136,3 +135,16 @@ h1 {
   margin: 0;
 }
 
+.court-card.indoor {
+  border-style: solid;
+  border-color: #81c784;
+  border-width: 2px;
+  box-shadow: 0 2px 6px green;
+}
+
+.court-card.outdoor {
+  border-style: solid;
+  border-color: #aed581;
+  border-width: 2px;
+  box-shadow: 0 2px 6px #aed581;
+}

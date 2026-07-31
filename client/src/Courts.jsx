@@ -20,7 +20,7 @@ export default function Courts({ courts, decision, weather, loading, error }) {
         <p>No courts found</p>
       ) : (
         courts.map((c) => (
-          <div key={c.id} className="court-card">
+          <div key={c.id} className={`court-card ${c.indoor ? 'indoor' : 'outdoor'}`}>
             <div className="court-card-details">
               <p>{c.name}</p>
               <p>({c.city})</p>
