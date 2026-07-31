@@ -1,4 +1,4 @@
-export default function Courts({ courts, decision, loading, error }) {
+export default function Courts({ courts, decision, weather, loading, error }) {
 
   if (loading) return <p className="Loading-Courts">Loading Courts...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
@@ -9,6 +9,11 @@ export default function Courts({ courts, decision, loading, error }) {
         <div className="decision-banner">
           <p>Recommendation: {decision.recommendation}</p>
           <p>{decision.reason}</p>
+          {weather && (
+            <p className="weather-details">
+              Current conditions: {weather.main.temp}°C, wind: {weather.wind.speed} m/s, humidity: {weather.main.humidity}%
+            </p>
+          )}
         </div>
       )}
       {courts.length === 0 ? (
