@@ -8,6 +8,7 @@
 - @prisma/client — Apache-2.0
 - @prisma/adapter-pg — Apache-2.0
 - prisma (dev) — Apache-2.0
+- oxlint (dev) — MIT
 
 ## Client
 - react — MIT
