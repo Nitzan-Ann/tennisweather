@@ -24,6 +24,9 @@ jobs:
       - name: Lint server
         working-directory: ./server
         run: npm run lint
+      - name: Install client dependencies
+        working-directory: ./client
+        run: npm install
       - name: Lint client
         working-directory: ./client
         run: npm run lint
