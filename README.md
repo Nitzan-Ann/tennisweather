@@ -43,3 +43,6 @@ GitHub Actions pipeline runs on every pull request and push to `main`: installs 
 
 ## License
 See [LICENSES_ALL.md](./LICENSES_ALL.md) for third-party dependencies and their licenses.
+
+## Release Notes
+Published via GitHub Pages: https://nitzan-ann.github.io/tennisweather/
