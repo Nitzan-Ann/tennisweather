@@ -40,3 +40,6 @@ Core features complete: weather-based recommendation logic, courts API, React fr
 
 ## CI/CD
 GitHub Actions pipeline runs on every pull request and push to `main`: installs dependencies, generates the Prisma client, starts the server, and runs all unit and integration tests.
+
+## License
+See [LICENSES_ALL.md](./LICENSES_ALL.md) for third-party dependencies and their licenses.
