@@ -30,4 +30,16 @@ test('recommends outdoor when conditions are good', () => {
   assert.strictEqual(result.recommendation, "outdoor");
 });
 
+test('recommends indoor when temperature is below minTemp', () => {
+  const weather = { wind: { speed: 5 }, weather: [{ main: "Clear" }], main: { temp: 2, humidity: 50 } };
+  const result = decideCourtType(weather);
+  assert.strictEqual(result.recommendation, "indoor");
+});
+
+test('recommends indoor when temperature is above maxTemp', () => {
+  const weather = { wind: { speed: 5 }, weather: [{ main: "Clear" }], main: { temp: 40, humidity: 50 } };
+  const result = decideCourtType(weather);
+  assert.strictEqual(result.recommendation, "indoor");
+});
+
 
