@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test decision.test.js recommendation.integration.test.js courts.integration.test.js weather.integration.test.js",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "coverage": "c8 node --test decision.test.js"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +21,8 @@
     "pg": "^8.22.0"
   },
   "devDependencies": {
+    "c8": "^12.0.0",
     "oxlint": "^1.77.0",
     "prisma": "^7.9.0"
   }
-
 }
