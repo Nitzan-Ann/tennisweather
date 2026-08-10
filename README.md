@@ -30,13 +30,14 @@ Web app that recommends indoor or outdoor tennis courts based on real-time weath
 Core features complete: weather-based recommendation logic, courts API, React frontend, Docker containerization, and CI/CD pipeline. See [Releases](https://github.com/Nitzan-Ann/tennisweather/releases) for version history.
 
 ## Testing
-- Unit tests for decision logic (decision.test.js) - 4 tests
+- Unit tests for decision logic (decision.test.js) - 6 tests
 - Integration tests for all API endpoints (courts, weather, recommendation) - 6 tests, run against a live server
-- Code coverage measured with c8: 91.66% on decision.js
+- Code coverage measured with c8: 100% on decision.js
   (Note: coverage tooling measures only same-process code;
   integration tests run successfully against server.js in a
   separate process, so server.js logic is tested but not
   reflected in the coverage percentage above.)
+
 
 ## CI/CD
 GitHub Actions pipeline runs on every pull request and push to `main`: installs dependencies, generates the Prisma client, starts the server, and runs all unit and integration tests.
