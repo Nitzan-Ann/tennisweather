@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Courts from "./Courts";
 import ControlPanel from "./ControlPanel";
 import './App.css';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -24,12 +25,12 @@ export default function App() {
         setLoading(true);
 
         const url = city
-          ? `http://localhost:8000/api/recommendation?city=${city}&windThreshold=${windThreshold}&humidityThreshold=${humidityThreshold}&minTemp=${minTemp}&maxTemp=${maxTemp}`
-          : `http://localhost:8000/api/courts`;
+          ? `${BASE_URL}/api/recommendation?city=${city}&windThreshold=${windThreshold}&humidityThreshold=${humidityThreshold}&minTemp=${minTemp}&maxTemp=${maxTemp}`
+          : `${BASE_URL}/api/courts`;
         
         const [recRes, weatherRes] = await Promise.all([
           fetch(url),
-          city ? fetch(`http://localhost:8000/api/weather?city=${city}`) : Promise.resolve(null)
+          city ? fetch(`${BASE_URL}/api/weather?city=${city}`) : Promise.resolve(null)
         ]);
         if (!recRes.ok) {
           throw new Error("Server error: " + recRes.status);
